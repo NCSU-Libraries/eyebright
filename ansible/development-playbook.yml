@@ -26,12 +26,13 @@
     - role: dev-dummy-cert
     - role: dev-link-opt-rails
     - role: jp2
-    - role: rvm_io.rvm1-ruby
+    - role: rvm_io.ruby
       rvm1_rubies:
         - "{{ ruby_version }}"
-    - role: rvm-setup
-      users:
-        - vagrant
+      rvm1_user: "vagrant"
+#    - role: rvm-setup
+#      users:
+#        - vagrant
     - role: passenger-apache
       ruby: "{{ ruby_version }}"
       apache_virtualhost_lines:
