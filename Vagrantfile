@@ -2,8 +2,8 @@
 # vi: set ft=ruby :
 
 Vagrant.configure(2) do |config|
-  # This box works better than the centos project created one
-  config.vm.box = "boxcutter/centos72"
+  config.vm.box = "geerlingguy/centos7"
+  config.vm.box_version = "1.2.5"
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -11,7 +11,8 @@ Vagrant.configure(2) do |config|
 
   # on host: sudo ufw allow from 192.168.33.0/24
   # on guest: sudo yum remove firewalld
-  config.vm.synced_folder '.', '/vagrant', type: 'nfs', mount_options: ['nolock', 'rw', 'vers=3', 'tcp', 'actimeo=2']
+  config.vm.synced_folder '.', '/vagrant'
+  #, type: 'nfs', mount_options: ['nolock', 'rw', 'vers=3', 'tcp', 'actimeo=2']
 
   # host: vagrant plugin install vagrant-sshfs
   # host: sudo apt-get install openssh-server
@@ -28,11 +29,14 @@ Vagrant.configure(2) do |config|
 
   config.vm.provider "virtualbox" do |vb|
     vb.linked_clone = true
-    vb.memory = 1024
+    vb.memory = 2048
     vb.cpus = 1
   end
 
+  config.vm.provision "shell", inline: "yum -y install git"  
+
   config.vm.provision "ansible" do |ansible|
+    ansible.galaxy_role_file = 'ansible/requirements.yml'    
     ansible.playbook = 'ansible/development-playbook.yml'
     ansible.inventory_path = 'ansible/development.ini'
     ansible.limit = 'all'

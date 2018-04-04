@@ -1,0 +1,41 @@
+# from galaxy
+- src: franklinkim.environment
+  version: "1.2.0"
+
+- src: rvm_io.ruby
+  version: "v2.0.1"
+
+- src: geerlingguy.memcached
+  version: "1.0.4"
+
+- src: geerlingguy.redis
+  version: "1.2.0"
+
+# from NCSU-Libraries-Ansible-Roles
+- src: https://github.com/NCSU-Libraries-Ansible-Roles/basic-setup.git
+  version: "v1.1.2"
+  name: basic-setup
+  
+- src: https://github.com/NCSU-Libraries-Ansible-Roles/ffmpeg.git
+  version: "v1.2.0"
+  name: ffmpeg
+
+- src: https://github.com/NCSU-Libraries-Ansible-Roles/jp2.git
+  version: "v1.1.0"
+  name: jp2
+
+- src: https://github.com/NCSU-Libraries-Ansible-Roles/rvm-setup.git
+  version: "v1.1.0"
+  name: rvm-setup
+
+- src: https://github.com/NCSU-Libraries-Ansible-Roles/dev-dummy-cert.git
+  version: "v1.1.0"
+  name: dev-dummy-cert
+
+- src: https://github.com/NCSU-Libraries-Ansible-Roles/dev-link-opt-rails.git
+  version: "v1.1.0"
+  name: dev-link-opt-rails
+
+- src: https://github.com/NCSU-Libraries-Ansible-Roles/passenger-apache.git
+  version: "v1.1.1"
+  name: passenger-apache

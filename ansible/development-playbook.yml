@@ -8,7 +8,15 @@
   vars:
     project_name: iiif
     ruby_version: ruby-2.3.1
+    ansible_user: vagrant
   pre_tasks:
+    # libmp4v2 is in EPEL repo
+    - name: Add repository
+      yum_repository:
+        name: epel
+        description: EPEL YUM repo
+        baseurl: http://dl.fedoraproject.org/pub/epel/7/x86_64/
+        gpgcheck: no
     - name: necessary packages
       yum:
         name: "{{ item }}"
@@ -26,12 +34,16 @@
     - role: dev-dummy-cert
     - role: dev-link-opt-rails
     - role: jp2
-    - role: rvm_io.rvm1-ruby
+    - role: rvm_io.ruby
       rvm1_rubies:
-        - "{{ ruby_version }}"
-    - role: rvm-setup
-      users:
-        - vagrant
+        - 2.3.1
+      rvm1_bundler_install: True
+      rvm1_user: "{{ansible_user}}"
+      rvm1_rvm_version: 'stable'
+      rvm1_autolib_mode: 3
+    # - role: rvm-setup
+    #   users:
+    #     - "{{ansible_user}}"
     - role: passenger-apache
       ruby: "{{ ruby_version }}"
       apache_virtualhost_lines:
