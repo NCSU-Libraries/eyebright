@@ -56,7 +56,7 @@ GEM
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.7.0)
-    ffi (1.9.14)
+    ffi (1.10.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     httpclient (2.8.2.4)
@@ -96,7 +96,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     puma (3.6.0)
     rack (2.0.6)
-    rack-cors (0.4.0)
+    rack-cors (1.0.2)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.7.2)
@@ -194,13 +194,14 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   dalli
+  ffi (>= 1.9.24)
   httpclient
   iiif_url
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
   puma (~> 3.0)
-  rack-cors
+  rack-cors (>= 0.4.1)
   rails (~> 5.0.0, >= 5.0.0.1)
   resque
   resque-web

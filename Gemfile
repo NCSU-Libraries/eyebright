@@ -4,7 +4,9 @@ gem 'iiif_url'
 gem 'resque'
 gem 'resque-web', require: 'resque_web'
 gem 'dalli'
-gem 'rack-cors', require: 'rack/cors'
+
+# rack-cors 0.4.1 for security issue
+gem 'rack-cors', ">= 0.4.1", require: 'rack/cors'
 gem 'httpclient'
 gem 'whenever', require: false
 
@@ -22,6 +24,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
+# Security update for 2019-03-14
+gem "ffi", ">= 1.9.24"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
