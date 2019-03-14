@@ -25,6 +25,8 @@
         - libtiff-tools
         - ImageMagick
         - libmp4v2
+        - freetype-devel
+        - bzip2-devel
   roles:
     # sudo service firewalld stop
     - role: basic-setup
@@ -34,7 +36,7 @@
     - role: dev-dummy-cert
     - role: dev-link-opt-rails
     - role: jp2
-    - role: rvm_io.ruby
+    - role: rvm.ruby
       rvm1_rubies:
         - 2.3.1
       rvm1_bundler_install: True

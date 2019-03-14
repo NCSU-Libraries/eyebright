@@ -1,9 +1,8 @@
 # from galaxy
-- src: franklinkim.environment
-  version: "1.2.0"
+# - src: franklinkim.environment
+#   version: "1.2.0"
 
-- src: rvm_io.ruby
-  version: "v2.0.1"
+- src: rvm.ruby
 
 - src: geerlingguy.memcached
   version: "1.0.4"
@@ -15,7 +14,7 @@
 - src: https://github.com/NCSU-Libraries-Ansible-Roles/basic-setup.git
   version: "v1.1.2"
   name: basic-setup
-  
+
 - src: https://github.com/NCSU-Libraries-Ansible-Roles/ffmpeg.git
   version: "v1.2.0"
   name: ffmpeg
