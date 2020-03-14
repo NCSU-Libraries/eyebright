@@ -16,7 +16,7 @@
   name: basic-setup
 
 - src: https://github.com/NCSU-Libraries-Ansible-Roles/ffmpeg.git
-  version: "v1.2.0"
+  # version: "v1.2.0"
   name: ffmpeg
 
 - src: https://github.com/NCSU-Libraries-Ansible-Roles/jp2.git

@@ -14,5 +14,7 @@ module Eyebright
     config.autoload_paths << Rails.root.join('lib')
 
     config.eyebright = config_for(:eyebright)
+
+    config.api_tokens = config_for(:api_tokens)
   end
 end

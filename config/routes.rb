@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   # redirect from identifier to the info.json for the video
   get "#{video_prefix}/:id", to: redirect("#{video_prefix}/%{id}/info.json")
 
+  # API
+  delete '/api/clear_image_cache'
 
   mount ResqueWeb::Engine => "/jobs"
 

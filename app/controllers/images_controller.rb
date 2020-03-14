@@ -1,5 +1,7 @@
 class ImagesController < ApplicationController
 
+  include ImageDirectoryPaths
+
   before_action :validate_request, only: [:show]
 
   def show
@@ -47,28 +49,6 @@ class ImagesController < ApplicationController
 
   def view
     @info_json_url = File.join IiifUrl.base_url, params[:id], 'info.json'
-  end
-
-  private
-
-  def identifier_directory
-    File.join Rails.root, "public/iiif/#{params[:id]}"
-  end
-
-  def image_cache_directory
-    File.join(identifier_directory, "/#{params[:region]}/#{params[:size]}/#{params[:rotation]}")
-  end
-
-  def image_cache_file_path
-    File.join(image_cache_directory, "#{params[:quality]}.#{params[:format]}")
-  end
-
-  def info_cache_directory
-    identifier_directory
-  end
-
-  def info_cache_file_path
-    File.join info_cache_directory, 'info.json'
   end
 
   def validate_request

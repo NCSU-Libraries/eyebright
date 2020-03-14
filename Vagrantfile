@@ -44,18 +44,6 @@ Vagrant.configure(2) do |config|
     # ansible.verbose = 'vvvv'
   end
 
-  # https://github.com/kierate/vagrant-port-forwarding-info
-  # vagrant plugin install vagrant-triggers
-  # Get the port details in these cases:
-  # - after "vagrant up" and "vagrant resume"
-  config.trigger.after [:up, :resume] do
-    run "#{File.dirname(__FILE__)}/get-ports.sh #{@machine.id}"
-  end
-  # - before "vagrant ssh"
-  config.trigger.before :ssh do
-    run "#{File.dirname(__FILE__)}/get-ports.sh #{@machine.id}"
-  end
-
   # set auto_update to false, if you do NOT want to check the correct
   # additions version when booting this machine
   config.vbguest.auto_update = true
