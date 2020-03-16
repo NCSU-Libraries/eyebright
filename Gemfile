@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'zaru'
 gem 'iiif_url'
 gem 'resque'
 gem 'resque-web', require: 'resque_web'

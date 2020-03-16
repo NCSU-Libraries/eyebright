@@ -6,7 +6,7 @@ class ApiController < ApplicationController
   before_action :authenticate_with_token
 
   def clear_image_cache
-    params[:id] = params[:image]
+    params[:id] = Zaru.sanitize!(params[:image])
     if File.exists? identifier_directory
       FileUtils.rm_rf(identifier_directory)
       api_response = {success: "Cache for #{params[:id]} removed.", image: params[:id]}
